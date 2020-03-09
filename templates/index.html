@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>{{t}}</title>
+    </head>
+    <body>
+        <h1>{{h}}</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Striking</th>
+                <th>Grappling</th>
+            </tr>
+        {% for fighter in fighters %}
+        <tr>
+            <td>{{ fighter['name'] }}</td>
+            <td>{{ fighter['striking'] }}</td>
+            <td>{{ fighter['grappling'] }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>
