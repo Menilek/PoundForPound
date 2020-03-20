@@ -1,22 +1,31 @@
 <html>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <head>
         <title>{{t}}</title>
     </head>
     <body>
-        <h1>{{h}}</h1>
+        <h1 class="heading">{{h}}</h1>
         {% if fighters[0] %}
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Striking</th>
-                <th>Grappling</th>
-            </tr>
+        <table class="centred.responsive-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Striking</th>
+                    <th>Grappling</th>
+                </tr>
+            </thead>
         {% for fighter in fighters %}
-        <tr>
-            <td>{{ fighter["name"] }}</td>
-            <td>{{ fighter["striking"] }}</td>
-            <td>{{ fighter["grappling"] }}</td>
-        </tr>
+            <tbody>
+                <tr>
+                    <td>{{ fighter["name"] }}</td>
+                    <td>{{ fighter["striking"] }}</td>
+                    <td>{{ fighter["grappling"] }}</td>
+                </tr>
+            </tbody>
         {% endfor %}
         </table>
         {% else %}
