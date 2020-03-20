@@ -4,6 +4,7 @@
     </head>
     <body>
         <h1>{{h}}</h1>
+        {% if fighters[0] %}
         <table>
             <tr>
                 <th>Name</th>
@@ -12,11 +13,14 @@
             </tr>
         {% for fighter in fighters %}
         <tr>
-            <td>{{ fighter['name'] }}</td>
-            <td>{{ fighter['striking'] }}</td>
-            <td>{{ fighter['grappling'] }}</td>
+            <td>{{ fighter["name"] }}</td>
+            <td>{{ fighter["striking"] }}</td>
+            <td>{{ fighter["grappling"] }}</td>
         </tr>
         {% endfor %}
         </table>
+        {% else %}
+        <h2>No Fighters Active</h2>
+        {% endif %}
     </body>
 </html>
