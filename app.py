@@ -1,10 +1,16 @@
 from flask import Flask, render_template, jsonify, request
-from bson import ObjectId #CURRENTLY NOT USED
 from pymongo import MongoClient
+import os
 
 app = Flask(__name__)
-app.config.from_object('instance.config.Config')
-client = MongoClient(app.config['DATABASE_URI'])
+
+if os.environ.get('prod') == True:
+    db_uri = os.environ.get('DATABASE_URI')
+    client = MongoClient(db_uri)
+else:
+    app.config.from_object("instance.config.DevelopmentConfig")
+    client = MongoClient(app.config['DATABASE_URI'])
+
 db = client['fantasy-fighter'] #select db
 
 title = 'Top Fighters'
@@ -25,4 +31,4 @@ def json_fighter_list():
     return jsonify({'fighters' : fighter_list}) 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
