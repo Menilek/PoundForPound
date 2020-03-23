@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-if os.environ.get('prod') == True:
+if os.environ.get('prod'):
     db_uri = os.environ.get('DATABASE_URI')
     client = MongoClient(db_uri)
 else:
