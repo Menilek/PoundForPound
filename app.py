@@ -8,8 +8,10 @@ if os.environ.get('prod') == True:
     db_uri = os.environ.get('DATABASE_URI')
     client = MongoClient(db_uri)
 else:
-    app.config.from_object("instance.config.DevelopmentConfig")
-    client = MongoClient(app.config['DATABASE_URI'])
+    db_uri = 'mongodb://127.0.0.1/test-fantasy-fighter'
+    client = MongoClient(db_uri)
+    app.config['ENV'] = 'development'
+    app.config['DEBUG'] = 'True'
 
 db = client['fantasy-fighter'] #select db
 
