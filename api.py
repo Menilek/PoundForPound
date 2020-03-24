@@ -20,3 +20,19 @@ def fighter_list():
     for f in fighters.find({},{"_id": 0, "name": 1, "striking": 1, "grappling": 1}):
         fighter_list.append({'name': f['name'], 'striking': f['striking'], 'grappling': f['grappling']})
     return jsonify({'fighters' : fighter_list})
+
+@api.route('/grappling/<style>', methods=['GET'])
+def grappler_list(style):
+    query = {"grappling" : style}
+    fighter_list = []
+    for f in fighters.find(query):
+        fighter_list.append({'name': f['name'], 'striking': f['striking'], 'grappling': f['grappling']})
+    return jsonify({'grapplers' : fighter_list})
+
+@api.route('/striking/<style>', methods=['GET'])
+def striking_list(style):
+    query = {"striking" : style}
+    fighter_list = []
+    for f in fighters.find(query):
+        fighter_list.append({'name': f['name'], 'striking': f['striking'], 'grappling': f['grappling']})
+    return jsonify({'strikers' : fighter_list})
