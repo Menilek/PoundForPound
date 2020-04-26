@@ -6,6 +6,7 @@ if os.environ.get('prod'):
     db_uri = os.environ.get('DATABASE_URI')
     client = MongoClient(db_uri)
 else:
+    # db_uri = 'mongodb://' + os.environ['MONGODB_USERNAME'] + ':' + os.environ['MONGODB_PASSWORD'] + '@' + os.environ['MONGODB_HOSTNAME'] + ':27017/' + os.environ['MONGODB_DATABASE']
     db_uri = 'mongodb://127.0.0.1/test-fantasy-fighter'
     client = MongoClient(db_uri)
 

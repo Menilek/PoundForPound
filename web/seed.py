@@ -41,7 +41,14 @@ seed_fighters = [
     {"grappling":"Aikido","name":"Alex","striking":"Boxing"}
     ]
 
-seed_data = fighters.insert_many(seed_fighters)
-print(seed_data.inserted_ids)
+# seed_data = fighters.insert_many(seed_fighters)
+# print(seed_data.inserted_ids)
 
 # fighters.drop()
+
+def checkDBCollection():
+    f = fighters.find_one()
+    if f == None:
+        seed_data = fighters.insert_many(seed_fighters)
+    else:
+        pass

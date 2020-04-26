@@ -10,6 +10,7 @@
     <body>
         <h1 class="heading">{{h}}</h1>
         {% if fighters[0] %}
+        {{ pagination.info }}
         <table class="highlight.striped.centred.responsive-table">
             <thead>
                 <tr>
@@ -21,6 +22,7 @@
         {% for fighter in fighters %}
             <tbody>
                 <tr>
+                    <td>{{ loop.index + pagination.skip }}</td>
                     <td>{{ fighter["name"] }}</td>
                     <td>{{ fighter["striking"] }}</td>
                     <td>{{ fighter["grappling"] }}</td>
@@ -28,6 +30,7 @@
             </tbody>
         {% endfor %}
         </table>
+        {{ pagination.links }}
         {% else %}
         <h2>No Fighters Active</h2>
         {% endif %}
