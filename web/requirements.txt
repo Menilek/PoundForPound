@@ -11,3 +11,6 @@ flask_paginate == 0.6.0
 # PoundForPound/web/app.py: 3
 # PoundForPound/web/seed.py: 1
 pymongo == 3.10.1
+
+# PoundForPound/web/app.py: 7
+redis == 3.4.1

@@ -7,6 +7,8 @@ services:
       - "5000:5000"
     links:
       - my_db
+  redis:
+    image: "redis:alpine"
   my_db:
     build: "./db"
     # image: mongo:4.2.6

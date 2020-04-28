@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 
 # db_uri = 'mongodb://127.0.0.1/test-fantasy-fighter'
+# client = MongoClient(db_uri)
 client = MongoClient("mongodb://my_db:27017")
 
 db = client['fantasy-fighter'] #select db
