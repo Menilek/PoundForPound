@@ -5,6 +5,7 @@ services:
     build: "./web"
     ports:
       - "5000:5000"
+    tty: true
     links:
       - my_db
   redis:
