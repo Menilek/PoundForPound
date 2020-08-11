@@ -8,3 +8,4 @@ db/
 web/
 p4p/
 .vscode/
+dump.rdb
