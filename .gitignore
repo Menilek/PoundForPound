@@ -2,8 +2,9 @@ instance/
 __pycache__/
 .env
 virtual/
-web/__pycache__/
 heroku.yml
 docker-compose.yml
 db/
-web/Dockerfile
+web/
+p4p/
+.vscode/

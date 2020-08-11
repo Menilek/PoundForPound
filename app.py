@@ -10,7 +10,7 @@ import time
 app = Flask(__name__)
 app.register_blueprint(api, url_prefix="/api")
 
-cache = redis.Redis(host='redis', port=6379)
+cache = redis.Redis(host='localhost', port=6379)
 
 if os.environ.get('prod'):
     db_uri = os.environ.get('DATABASE_URI')
