@@ -37,3 +37,11 @@ def striking_list(style):
     for f in fighters.find(query):
         fighter_list.append({'name': f['name'], 'striking': f['striking'], 'grappling': f['grappling']})
     return jsonify({'strikers' : fighter_list})
+
+@api.route('/<num>', methods=['GET'])
+def num_fighter_list(num):
+    num = int(num)
+    num_fighter_list = []
+    for n in fighters.find({},{"_id": 0, "name": 1, "striking": 1, "grappling": 1}).limit(num):
+        num_fighter_list.append({'name': n['name'], 'striking': n['striking'], 'grappling': n['grappling']})
+    return jsonify({'fighter' : num_fighter_list})
