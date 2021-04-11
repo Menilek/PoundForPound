@@ -10,6 +10,7 @@ import time
 app = Flask(__name__)
 app.register_blueprint(api, url_prefix="/api")
 
+# start redis by issuing command: redis-server
 if os.environ.get('REDIS_URL'):
     redis_host = os.environ.get('REDIS_URL')
     cache = redis.from_url(redis_host)
